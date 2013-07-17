@@ -1,0 +1,53 @@
+<!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+<!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
+<div class="navbar navbar-inverse navbar-fixed-top" id="mainNav">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#"><img src="./template/img/logo.png" alt="Logo" /></a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><a href="#URLFOND(index)"><i class="icon-home icon-white"></i>&nbsp;Home</a></li>
+          <li><a href="#URLFOND(produit)"><i class="icon-th-list icon-white"></i>&nbsp;Products</a></li>
+          <li><a href="#URLFOND(index)#about"><i class="icon-info-sign icon-white"></i>&nbsp;About</a></li>
+          <li><a href="#URLFOND(index)#contact"><i class="icon-envelope icon-white"></i>&nbsp;::contact::</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <!--<li>-->
+          <!--<form class="navbar-search pull-right" action="#URLRECHERCHE" method="post" name="recherche" id="recherche">-->
+            <!--<input type="text" class="search-query" placeholder="Search">-->
+          <!--</form>-->
+          <!--</li>-->
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img src="./template/img/caddy.png" alt="Panier" />&nbsp;::panier:: [ #PANIER_NBART ::article:: ]
+            <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="nav-header">::contenu::</li>
+            <T_panier>
+            <THELIA_panier type="PANIER">
+            <li><a href="#URLPANIER"><span class="emp">x#QUANTITE</span> <b>#TITRE</b> &nbsp; #TOTAL €</a></li>
+            </THELIA_panier>
+            <li><a href="#URLPANIER" class="totalCommande">::total:: : #PANIER_TOTAL €</a></li>			
+            <li class="divider"></li>
+            <li><a href="#URLPANIER">::validerpanier::</a></li>
+            </T_panier>
+            <li><a href="#URLPANIER">::paniervide::</a></li>
+            <//T_panier>
+          </ul>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+

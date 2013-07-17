@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+    #INCLURE "template/header.html"
+    </head>
+    <body>
+        #INCLURE "template/entete.html"
+        <div class="container">
+          <div id="home"></div>
+                      <!-- Main hero unit for a primary marketing message or call to action -->
+            <div class="hero-unit">
+                <h1>Dominate your gear!</h1>
+                <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                <p><a class="btn btn-primary btn-large" href="#URLFOND(produit)">::infosup::&raquo;</a></p>
+            </div>
+
+            <THELIA_rub type="RUBRIQUE">
+            <div class="page-header">
+              <h1>#TITRE&nbsp;<small>#CHAPO</small></h1>
+            </div>
+            <ul class="thumbnails">
+			      	<THELIA_PROD type="PRODUIT" rubrique="#ID">
+              <li class="span6">
+                <div class="thumbnail">
+			      			<a href="#URLFOND(produit)##ID" class="image">
+			      			<T_IMAGE>
+			      				<THELIA_IMAGE type="IMAGE" num="1" produit="#ID" >
+			      					<img src="#IMAGE" alt="#PRODTITRE" title="#PRODTITRE" />
+			      				</THELIA_IMAGE>
+			      			</T_IMAGE>
+			      					<img src="./template/img/no-image.png" alt="Pas d'image disponible" />
+			      			<//T_IMAGE>
+			      			</a>
+			      			<h2><a href="#URLFOND(produit)##ID">#TITRE</a></h2>
+			      			<div class="lead">#CHAPO</div>
+										<div class="pull-right">
+			      			    #NOUVEAU[<span class="badge badge-warning">::nouveau::</span>][]
+                      #PROMO[<span class="label label-important">#PRIX2€</span>][<span class="label label-important">#PRIX€</span>]
+			      		  		#PROMO[<del>#PRIX€</del>][]
+										</div>
+                      <form action="#AJOUTER_PARAMETRE(#URLCOURANTE,panier=1)" method="post">
+                        <input type="hidden" name="action" value="ajouter" />
+                        <input type="hidden" name="ref" value="#REF" />
+                        <input type="hidden" name="quantite" value="1" />
+                      <div class="btn-group">
+                        <a href="#URLFOND(produit)##ID" role="button" class="btn btn-info"><i class="icon-info-sign icon-white"></i> ::infosup::</a>
+                        <button type="submit" role="button" class="btn btn-warning"><i class="icon-plus-sign icon-white"></i> ::ajouterpanier::</button>
+                      </div>
+                      </form>
+                </div>
+              </li>
+			      	</THELIA_PROD>
+            </ul>
+
+            <T_contenu>
+              <h2>Highlights</h2>
+                <ul class="media-list">
+                <THELIA_contenu type="CONTENU" rubrique="#ID">
+                  <li class="media">
+                  <THELIA_IMAGE type="IMAGE" num="1" contenu="#ID" hauteur="100">
+                    <a class="pull-left" href="#">
+                      <img class="media-object" src="#IMAGE" alt="#CONTTITRE" title="#CONTTITRE">
+                    </a>
+			            </THELIA_IMAGE>
+                  <div class="media-body">
+                    <h4 class="media-heading">#TITRE</h4>
+                    <p>#CHAPO</p>
+                  </div>
+                  </li>
+                </THELIA_contenu>
+                </ul>
+            </T_contenu>
+            <//T_contenu>
+
+            </THELIA_rub>
+
+          <div id="about" class="well">about</div>
+          <div id="contact">contact</div>
+        #INCLURE "template/signature.html"
+        </div> <!-- /container -->
+        #INCLURE "template/footer.html"
+    </body>
+</html>

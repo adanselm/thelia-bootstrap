@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+#INCLURE "template/header.html"
+</head>
+<body>
+#INCLURE "template/entete.html"
+<div class="container-fluid">
+
+  <div class="row-fluid">
+    <div class="span3">
+      <ul class="nav nav-list affix" data-spy="affix" data-offset-top="50">
+        <THELIA_PROD type="PRODUIT">
+        <li><a href="##ID"><i class="icon-chevron-right"></i> #TITRE</a></li>
+        </THELIA_PROD>
+      </ul>
+
+    </div>
+    <div class="span9">
+
+
+      <THELIA_rub type="RUBRIQUE">
+      <div class="page-header">
+        <h1>#TITRE&nbsp;<small>#CHAPO</small></h1>
+      </div>
+
+        <THELIA_PROD type="PRODUIT" rubrique="#ID">
+        <div id="#ID" class="product">
+          <h2>#TITRE</h2>
+
+          <div id="myCarousel" class="carousel slide">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+              <T_IMAGE>
+                <THELIA_IMAGE type="IMAGE" num="1" produit="#ID" >
+                  <div class="active item">
+                    <img src="#IMAGE" alt="#PRODTITRE" title="#PRODTITRE" />
+                    <div class="carousel-caption">
+                      <h4>#TITRE</h4>
+                      <p>#CHAPO</p>
+                    </div>
+                  </div>
+                </THELIA_IMAGE>
+                <THELIA_IMAGE type="IMAGE" deb="2" produit="#ID" >
+                  <div class="item">
+                    <img src="#IMAGE" alt="#PRODTITRE" title="#PRODTITRE" />
+                    <div class="carousel-caption">
+                      <h4>#TITRE</h4>
+                      <p>#CHAPO</p>
+                    </div>
+                  </div>
+                </THELIA_IMAGE>
+              </T_IMAGE>
+                <div class="active item">
+                  <img src="./template/img/no-image.png" alt="Pas d'image disponible" />
+                </div>
+              <//T_IMAGE>
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+          </div>
+
+          <div class="lead">#CHAPO</div>
+          <p>#DESCRIPTION</p>
+          <div class="pull-right">
+            #NOUVEAU[<span class="badge badge-warning">::nouveau::</span>][]
+            #PROMO[<span class="label label-important">#PRIX2€</span>][<span class="label label-success">#PRIX€</span>]
+            #PROMO[<del>#PRIX€</del>][]
+          </div>
+          <form action="#AJOUTER_PARAMETRE(#URLCOURANTE,panier=1)" method="post">
+            <input type="hidden" name="action" value="ajouter" />
+            <input type="hidden" name="ref" value="#REF" />
+            <input type="hidden" name="quantite" value="1" />
+            <button type="submit" role="button" class="btn btn-warning btn-large"><i class="icon-plus-sign icon-white"></i> ::ajouterpanier::</button>
+          </form>
+        </div>
+        </THELIA_PROD>
+
+      </THELIA_rub>
+
+    </div> <!-- span -->
+  </div> <!-- row-fluid -->
+  #INCLURE "template/signature.html"
+</div> <!-- /container -->
+#INCLURE "template/footer.html"
+</body>
+</html>

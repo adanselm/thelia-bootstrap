@@ -12,18 +12,22 @@
 <div class="container">
 
   <div class="page-header">
-    <h2>::compte:: : ::ajouteradresse::</h2>
+    <h2>::compte:: : ::modifadresselivraison::</h2>
   </div>
 
-  <form action="#URLFOND(adresse)" method="post" name="nouveau" id="nouveau" class="form-horizontal">
-    <input type="hidden" name="action" value="creerlivraison" />
-    <input type="hidden" name="urlok" value="#URLPAGERET" />
-    <input type="hidden" name="urlerr" value="#URLFOND(livraison_adresse_err,erradr=1)" />
+  <form action="#URLFOND(livraison_modifier)" method="post" name="modifier" id="modifier" class="form-horizontal">
+    <input type="hidden" name="action" value="modifierlivraison" />
+		<THELIA_adr type="ADRESSE" adresse="#ADRESSE_ID" client="#CLIENT_ID">
+			<input name="id" type="hidden" value="#ID" />
+			<input name="adresse" type="hidden" value="#ID" />
+      <input type="hidden" name="urlok" value="#URLPAGERET" />
+      <input type="hidden" name="urlerr" value="#URLFOND(livraison_modifier_err,erradr=1&amp;adresse=#ID)" />
 
     <div class="control-group">
       <label class="control-label" for="nom">::libelle::* </label> 
       <div class="controls">
-        <input type="text" name="libelle" id="libelle" />
+        <input type="text" name="libelle" id="libelle" value="#LIBELLE"/>
+        #LIBELLE[<span class="help-inline">::obligatoire::</span>]
       </div>
     </div>
     <div class="control-group">
@@ -31,46 +35,52 @@
       <div class="controls">
         <select name="raison" size="1" id="civilite">
           <option value="" selected="selected">::choisissez::</option>
-          <THELIA_raison type="RAISON">
-          <option value="#ID" #DEFAUT>#LONG</option>
+          <THELIA_raison type="RAISON" select="#RAISONID">
+          <option value="#ID" #SELECTED>#LONG</option>
           </THELIA_raison>
         </select>
+        #RAISONID[<span class="help-inline">::obligatoire::</span>]
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="nom">::nom::*</label> 
       <div class="controls">
-        <input type="text" name="nom" id="nom" />
+        <input type="text" name="nom" id="nom" value="#NOM"/>
+        #NOM[<span class="help-inline">::obligatoire::</span>]
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="prenom">::prenom::*</label> 
       <div class="controls">
-        <input type="text" name="prenom" id="prenom" />
+        <input type="text" name="prenom" id="prenom" value="#PRENOM"/>
+        #PRENOM[<span class="help-inline">::obligatoire::</span>]
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="adresse1">::adresse::*</label> 
       <div class="controls">
-        <input type="text" name="adresse1" id="adresse1"  />
+        <input type="text" name="adresse1" id="adresse1" value="#ADRESSE1" />
+        #ADRESSE1[<span class="help-inline">::obligatoire::</span>]
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="adresse2">::complementadresse::</label> 
       <div class="controls">
-        <input type="text" name="adresse2" id="adresse2"  />
+        <input type="text" name="adresse2" id="adresse2" value="#ADRESSE2" />
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="cpostal">::cp::*</label> 
       <div class="controls">
-        <input type="text" name="cpostal" id="cpostal"  />
+        <input type="text" name="cpostal" id="cpostal" value="#CPOSTAL" />
+        #CPOSTAL[<span class="help-inline">::obligatoire::</span>]
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="ville">::ville::*</label> 
       <div class="controls">
-        <input type="text" name="ville" id="ville"  />
+        <input type="text" name="ville" id="ville" value="#VILLE" />
+        #VILLE[<span class="help-inline">::obligatoire::</span>]
       </div>
     </div>
     <div class="control-group">
@@ -78,21 +88,23 @@
       <div class="controls">
         <select name="pays" size="1" id="pays">
           <option value="" selected="selected">::choisissez::</option>
-          <THELIA_pays type="PAYS" zdefinie="1">
-          <option value="#ID"  #DEFAUT>#TITRE</option>
+          <THELIA_pays type="PAYS" select="#PAYS" zdefinie="1">
+          <option value="#ID"  #SELECTED>#TITRE</option>
           </THELIA_pays>
         </select>
+        #PAYS[<span class="help-inline">::obligatoire::</span>]
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="tel">::tel::</label> 
       <div class="controls">
-        <input type="text" name="tel" id="tel"  />
+        <input type="text" name="tel" id="tel" value="#TEL" />
       </div>
     </div>
     <div class="form-actions">
       <button type="submit" class="btn btn-primary">::valider::</button>
     </div>
+    </THELIA_adr>
   </form>
 
   #INCLURE "template/signature.html"

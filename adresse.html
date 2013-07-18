@@ -27,26 +27,30 @@
           </div>
           <br/>
 
-          <h1>::coordonnees::</h1>
-          <div>
+          <div class="page-header">
+            <h1>::coordonnees::</h1>
+          </div>
+
+          <div class="row">
+          <div class="span6">
             <h3>::adressefacturation::</h3>
-            <div>
+            <address>
               #CLIENT_RAISON #CLIENT_PRENOM #CLIENT_NOM<br />
               #CLIENT_ADRESSE1 #CLIENT_ADRESSE2 #CLIENT_ADRESSE3<br />
               #CLIENT_CPOSTAL #CLIENT_VILLE<br />
               #CLIENT_PAYS
-            </div>
+            </address>
             <a href="#URLCOMPTEMODIFIER" class="btn">::modifadresse::</a>
           </div>
-          <div>
+          <div class="span6">
             <h3>::adresselivraison:: </h3>
             <THELIA_adrcours type="ADRESSE" adresse="#ADRESSE_ACTIVE">
-              <div>
+              <address>
                 #RAISON #PRENOM #NOM<br />
                 #ADRESSE1 #ADRESSE2 #ADRESSE3<br />
                 #CPOSTAL #VILLE<br />
                 <THELIA_pays type="PAYS" id="#PAYS">#TITRE</THELIA_pays>
-              </div>
+              </address>
               <T_adrmodcours>
                 <THELIA_adrmodcours type="ADRESSE" adresse="#ADRESSE_ACTIVE" defaut="0">
                   <a href="#URLFOND(livraison_modifier,adresse=#ID)" class="btn">::modifadresse::</a>
@@ -55,7 +59,7 @@
                 <a href="#URLCOMPTEMODIFIER" class="btn">::modifadresse::</a>
               <//T_adrmodcours>
             </THELIA_adrcours>
-            <h4>::selectautreadresselivraison::</h4>
+            <h4>::selectautreadresselivraison:: :</h4>
             <ul>
               <TEST_activefact variable="#ADRESSE_ACTIVE" test="different" valeur="0">
                 <li><a href="#URLFOND(adresse,action=modadresse&amp;adresse=0)">::adressefacturationdefaut::</a></li>
@@ -67,82 +71,21 @@
             </ul>
             <a href="#URLFOND(livraison_adresse)" class="btn">::ajoutnouvelleadresse::</a>
           </div>
-       
-           <h2>::choixmodelivraison:: </h2>
-           <div class="choixDeLaLivraison">
-           	<ul>
-               	<THELIA_transport type="TRANSPORT">
-               	<li><a href="#URLCMD"><span class="modeDeLivraison">#TITRE / #PORT €</span><span class="choisir"></span></a></li>
-               	</THELIA_transport>
-               </ul>
-           </div>
+        </div>
 
+        <br/>
+        <div>
+          <a class="btn" href="#URLFOND(panier)">&larr; ::contenu::</a>
+          <div class="pull-right">
+            <THELIA_transport type="TRANSPORT">
+            <ul class="inline">
+              <li><strong>::fraislivraison:: : #PORT €</strong></li>
+              <li><a class="btn btn-success" href="#URLCMD">::modelivraison:: &rarr;</a></li>
+          </ul>
+            </THELIA_transport>
+          </div>
+        </div>
 
-
-
-
-
-
-
-
-
-          <T_CONTENU_PANIER>
-			      <table class="table table-striped">
-				      <thead>
-                <tr>
-				        	<th colspan="2">::description::</th>
-				        	<th>::prixunitaire::</th>
-				        	<th>::quantite::</th>
-				        	<th>::total::</th>
-				        	<th>::supprimer::</th>
-                </tr>
-			      	</thead>
-			    	  <tbody>
-			        	<THELIA_CONTENU_PANIER type="PANIER">
-			          	<tr>
-			          		<td class="ligne">
-			          		<T_IMAGE>
-	                    <THELIA_IMAGE type="IMAGE" num="1" produit="#ID" hauteur="50">
-			          				<img src="#IMAGE" alt="#PRODTITRE " title="#PRODTITRE"/>
-			          			</THELIA_IMAGE>
-			          		</T_IMAGE>
-			          			<img src="./template/img/no-image.png" height="50" alt="No picture available" />
-			          		<//T_IMAGE>
-			          		</td>
-                    <td class="ligne"><a href="#URLFOND(produit)##ID">#TITRE</a></td>
-                    <td class="ligne">#PRIXU €</td>
-		                <td  class="ligne">
-                      <form action="#URLPANIER" method="post" name="formpanier#ARTICLE" id="formpanier#ARTICLE">
-                        <input type="hidden" name="article" value="#ARTICLE" />
-                        <input type="hidden" name="action" value="modifier" />
-                        <select class="span1" name="quantite" size="1" onchange="document.formpanier#ARTICLE.submit()">
-													<THELIA_quantite type="QUANTITE" article="#ARTICLE">
-														<option value="#NUM" #SELECTED>#NUM</option>
-													</THELIA_quantite>
-                        </select>
-                      </form>
-			          		</td>
-			          	  <td>#TOTAL €</td>
-			          	  <td><a class="btn btn-mini btn-danger" href="#SUPPRURL"><i class="icon-remove icon-white"></i></a></td>
-			          	</tr>
-                </THELIA_CONTENU_PANIER>
-                  <tr class="info">
-                    <th colspan="4">&nbsp;</th>
-			      		    <th>::totalpanier:: :</th>
-			      		    <th class="total">#PANIER_TOTAL €</th>
-			      	    </tr>
-			    	  </tbody>
-		    	  </table>
-
-            <!--<div class="btn-group">-->
-            <a class="btn" href="#URLSOMMAIRE">&larr; ::retourboutique::</a>
-            <a class="btn btn-success pull-right" href="#URLFOND(adresse)">::finalisercommande:: &rarr;</a>
-			    </T_CONTENU_PANIER>
-            <div class="alert">
-  			      <strong>::paniervide::! </strong> Please have a look at our products.
-            </div>
-  				  <a class="btn" href="#URLSOMMAIRE">&larr; ::retourboutique::</a>
-		      <//T_CONTENU_PANIER>
 
         #INCLURE "template/signature.html"
         </div> <!-- /container -->

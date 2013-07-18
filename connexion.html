@@ -10,101 +10,144 @@
     <body>
       #INCLURE "template/entete.html"
       <div class="container">
-        <div class="row">
-          <div class="span6">
-				    <h2>::dejaclient::</h2>
-	          <form action="#URLFOND(connexion)" method="post" name="connexion" id="connexion">
-	            <input type="hidden" name="action" value="connexion" />
-	            #ERRCONNEX[<span>::emailmdperr::</span><div></div>]
-	            <p>
-	              <label for="monemaild">::monemail::</label>
-	              <input name="email" type="text" id="monemaild" />
-	            </p>
-	            <p class="textConnexion">
-	              <label for="motdepasse"> ::monmdp:: </label>
-	              <input name="motdepasse" type="password" id="motdepasse"/>
-	            </p>
-	            <p class="textConnexion">
-                <a href="#URLFOND(mdpoublie)">::mdpperduoublie::</a>
-              </p>
-	            <p><button type="submit" class="btn">::valider::</button></p>
-	          </form>
-			    </div>
-			    <div class="span6">
-	          <h2>::nvclient::</h2>
-	          <form action="#URLNOUVEAU" method="post" name="nouveau" id="nouveau">
-	            <input type="hidden" name="action" value="creercompte" />
-				      <input type="hidden" name="obligetel" value="3" />
-	            <p>
-	              <label for="civilite">::civilite::*</label>
-	              <select name="raison" size="1" id="civilite">
-	                <option value="">::choisissez::</option>
-				          <THELIA_raison type="RAISON">
-	                <option value="#ID" #DEFAUT>#LONG</option>
-				          </THELIA_raison>
-	              </select>
-	            </p>
-	            <p>
-	              <label for="nom">::nom::*</label>
-	              <input type="text" name="nom" id="nom"/>
-	            </p>
-	            <p>
-	              <label for="prenom">::prenom::*</label>
-	              <input type="text" name="prenom" id="prenom"/>
-	            </p>
-	            <p>
-	              <label for="adresse1">::adresse::*</label>
-	              <input type="text" name="adresse1" id="adresse1"/>
-	            </p>
-	            <p>
-	              <label for="adresse2">::complementadresse::</label>
-	              <input type="text" name="adresse2" id="adresse2"/>
-	            </p>
-	            <p>
-	              <label for="cpostal">::cp::*</label>
-	              <input type="text" name="cpostal" id="cpostal"/>
-	            </p>
-	            <p>
-	              <label for="ville">::ville::*</label>
-	              <input type="text" name="ville" id="ville"/>
-	            </p>
-	            <p>
-	              <label for="pays">::pays::*</label>
-	              <select name="pays" size="1" id="pays">
-	                <option value="">::choisissez::</option>
-	                <THELIA_pays type="PAYS" zdefinie="1">
-	                <option value="#ID" #DEFAUT>#TITRE</option>
-	                </THELIA_pays>
-	              </select>
-	            </p>
-	            <p>
-	              <label for="telfixe">::tel:: * </label>
-	              <input type="text" name="telfixe" id="telfixe"/>
-	            </p>
-	            <p>
-	              <label for="email1">::email::*</label>
-	              <input type="text" name="email1" id="email1"/>
-	            </p>
-	            <p>
-	              <label for="email2">::confirmationemail::*</label>
-	              <input type="text" name="email2" id="email2"/>
-	            </p>
-	            <p>
-	              <label for="motdepasse1">::mdp1::* ::mincarac::</label>
-	              <input name="motdepasse1" type="password" id="motdepasse1"/>
-	            </p>
-	            <p>
-	              <label for="motdepasse2">::confirmationmdp::*</label>
-	              <input name="motdepasse2" type="password" id="motdepasse2"/>
-	            </p>
-	            <p>
-                <button type="submit" class="btn"><span><span>::valider::</span></span></button>
-                <span>* ::champsobligat::</span>
-              </p>
-	          </form>
-	        </div>
-        </div>
 
+        <div class="page-header">
+  				<h2>::dejaclient::</h2>
+        </div>
+        <form class="form-horizontal" action="#URLFOND(connexion)" method="post" name="connexion" id="connexion">
+          <input type="hidden" name="action" value="connexion" />
+          #ERRCONNEX[<div class="alert alert-error">::emailmdperr::</div><div></div>]
+          <div class="control-group">
+            <label class="control-label" for="monemaild">::monemail::</label>
+            <div class="controls">
+              <input name="email" type="text" id="monemaild" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="motdepasse"> ::monmdp:: </label>
+            <div class="controls">
+              <input name="motdepasse" type="password" id="motdepasse"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <a href="#URLFOND(mdpoublie)">::mdpperduoublie::</a>
+            </div>
+            <div class="form-actions">
+              <!-- Button to trigger modal -->
+              <a href="#myModal" role="button" class="btn" data-toggle="modal">::nvclient:: ?</a>
+              <button type="submit" class="btn btn-primary">::valider::</button>
+             </div>
+          </div>
+        </form>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">::nvclient::</h3>
+          </div>
+          <div class="modal-body">
+
+
+        <form class="form-horizontal" action="#URLNOUVEAU" method="post" name="nouveau" id="nouveau">
+          <input type="hidden" name="action" value="creercompte" />
+          <input type="hidden" name="obligetel" value="3" />
+          <div class="control-group">
+            <label class="control-label" for="civilite">::civilite::*</label>
+            <div class="controls">
+            <select name="raison" size="1" id="civilite">
+              <THELIA_raison type="RAISON">
+              <option value="#ID" #DEFAUT>#LONG</option>
+              </THELIA_raison>
+            </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="nom">::nom::*</label>
+            <div class="controls">
+            <input type="text" name="nom" id="nom"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="prenom">::prenom::*</label>
+            <div class="controls">
+            <input type="text" name="prenom" id="prenom"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="adresse1">::adresse::*</label>
+            <div class="controls">
+            <input type="text" name="adresse1" id="adresse1"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="adresse2">::complementadresse::</label>
+            <div class="controls">
+            <input type="text" name="adresse2" id="adresse2"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="cpostal">::cp::*</label>
+            <div class="controls">
+            <input type="text" name="cpostal" id="cpostal"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="ville">::ville::*</label>
+            <div class="controls">
+            <input type="text" name="ville" id="ville"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="pays">::pays::*</label>
+            <div class="controls">
+            <select name="pays" size="1" id="pays">
+              <option value="">::choisissez::</option>
+              <THELIA_pays type="PAYS" zdefinie="1">
+              <option value="#ID" #DEFAUT>#TITRE</option>
+              </THELIA_pays>
+            </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="telfixe">::tel:: * </label>
+            <div class="controls">
+            <input type="text" name="telfixe" id="telfixe"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="email1">::email::*</label>
+            <div class="controls">
+            <input type="text" name="email1" id="email1"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="email2">::confirmationemail::*</label>
+            <div class="controls">
+            <input type="text" name="email2" id="email2"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="motdepasse1">::mdp1::* ::mincarac::</label>
+            <div class="controls">
+            <input name="motdepasse1" type="password" id="motdepasse1"/>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="motdepasse2">::confirmationmdp::*</label>
+            <div class="controls">
+            <input name="motdepasse2" type="password" id="motdepasse2"/>
+            </div>
+          </div>
+          <span>* ::champsobligat::</span>
+        </form>
+      </div>
+          <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <button form="nouveau" type="submit" class="btn">::valider::</button>
+          </div>
+        </div>
 
         #INCLURE "template/signature.html"
         </div> <!-- /container -->

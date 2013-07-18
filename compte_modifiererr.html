@@ -1,0 +1,149 @@
+#PARAM_FOND_securise=1 #PARAM_FOND_nopageret=1
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+#INCLURE "template/header.html"
+</head>
+<body>
+#INCLURE "template/entete.html"
+<div class="container">
+
+  <div class="page-header">
+    <h2>::comptemodifier:: </h2>
+  </div>
+
+  <div class="row">
+    <div class="span6">
+      <h3><i class="icon-asterisk"></i> ::modifiermdp:: </h3>
+      <form action="#URLFOND(moncompte)" method="post" name="modifier1" id="modifier1" class="form-horizontal">
+        <input type="hidden" name="action" value="modifiercompte" />
+        <input type="hidden" name="obligetel" value="3" />
+        <div class="control-group #MOTDEPASSE[error]">
+          <label class="control-label" for="motdepasse1">::nouveaumdp:: </label>
+          <div class="controls">
+            <input name="motdepasse1" id="motdepasse1" type="password" />
+            #MOTDEPASSE[<span class="help-inline">::verifmdp::</span>]
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="motdepasse2">::confirmationmdp:: </label>
+          <div class="controls">
+            <input  name="motdepasse2" id="motdepasse2" type="password" />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">::valider::</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="span6">
+      <h3><i class="icon-list-alt"></i> ::modifcoord:: </h3>
+      <form action="#URLFOND(compte_modifier)" method="post" name="modifier2" id="modifier2" class="form-horizontal">
+        <input type="hidden" name="action" value="modifiercompte" />
+        <div class="control-group #RAISONID[error]">
+          <label class="control-label" for="civilite">::civilite::</label>
+          <div class="controls">
+            <select name="raison" id="civilite" size="1">
+              <THELIA_raison type="RAISON">
+              <option value="#ID" #SELECTED>#LONG</option>
+              </THELIA_raison>
+            </select>
+            #RAISONID[<span class="help-inline">::obligatoire::</span>]
+          </div>
+        </div>
+        <div class="control-group #NOM[error]">
+          <label class="control-label" for="nom">::nom::*</label>
+          <div class="controls">
+            <input  type="text" name="nom" id="nom" value="#CLIENT_NOM" />
+            #NOM[<span class="help-inline">::obligatoire::</span>]
+          </div>
+        </div>
+        <div class="control-group #PRENOM[error]">
+          <label class="control-label" for="prenom">::prenom::*</label>
+          <div class="controls">
+            <input  type="text" name="prenom" id="prenom" value="#CLIENT_PRENOM" />
+            #PRENOM[<span class="help-inline">::obligatoire::</span>]
+          </div>
+        </div>
+        <div class="control-group #ADRESSE1[error]">
+          <label class="control-label" for="adresse1">::adresse::*</label>
+          <div class="controls">
+            <input  type="text" name="adresse1" id="adresse1" value="#CLIENT_ADRESSE1" />
+            #ADRESSE1[<span class="help-inline">::obligatoire::</span>]
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="adresse2">::complementadresse:: </label>
+          <div class="controls">
+            <input  type="text" name="adresse2" id="adresse2" value="#CLIENT_ADRESSE2"/>
+          </div>
+        </div>
+        <div class="control-group #CPOSTAL[error]">
+          <label class="control-label" for="cpostal">::cp::* </label>
+          <div class="controls">
+            <input  type="text" name="cpostal" id="cpostal" value="#CLIENT_CPOSTAL"/>
+            #CPOSTAL[<span class="help-inline">::obligatoire::</span>]
+          </div>
+        </div>
+        <div class="control-group #VILLE[error]">
+          <label class="control-label" for="ville">::ville::*</label>
+          <div class="controls">
+            <input  type="text" name="ville" id="ville" value="#CLIENT_VILLE"/>
+            #VILLE[<span class="help-inline">::obligatoire::</span>]
+          </div>
+        </div>
+        <div class="control-group #PAYS[error]">
+          <label class="control-label" for="pays">::pays::*</label>
+          <div class="controls">
+            <select name="pays" id="pays" size="1">
+              <option value="">::choisissez::</option>
+              <THELIA_pays type="PAYS" zdefinie="1">
+              <option value="#ID" #SELECTED>#TITRE</option>
+              </THELIA_pays>
+            </select>
+            #PAYS[<span class="help-inline">::obligatoire::</span>]
+          </div>
+        </div>
+        <div class="control-group #TELFIXE[error]">
+          <label class="control-label" for="telfixe">::telfixe::* </label>
+          <div class="controls">
+            <input type="text" name="telfixe" id="telfixe"  value="#CLIENT_TELFIXE"  />
+            #TELFIXE[<span class="help-inline">::obligatoire::</span>]
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="telport">::telport:: </label>
+          <div class="controls">
+            <input  type="text" name="telport" id="telport" value="#CLIENT_TELPORT"/>
+          </div>
+        </div>
+        <div class="control-group #EMAIL[error]">
+          <label class="control-label" for="email1">::email::*</label>
+          <div class="controls">
+            <input  type="text" name="email1" id="email1" value="#CLIENT_EMAIL"/>
+            #EMAIL[<span class="help-inline">::obligatoire::</span>]
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="email2">::confirmationemail::* </label>
+          <div class="controls">
+            <input  type="text" name="email2" id="email2" value="#CLIENT_EMAIL"/>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">::valider::</button>
+        </div>
+      </form>
+    </div>
+
+  </div> <!-- Row -->
+
+  #INCLURE "template/signature.html"
+</div> <!-- /container -->
+#INCLURE "template/footer.html"
+</body>
+</html>

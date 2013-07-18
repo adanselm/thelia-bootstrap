@@ -1,0 +1,102 @@
+#PARAM_FOND_securise=1 #PARAM_FOND_nopageret=1
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+#INCLURE "template/header.html"
+</head>
+<body>
+#INCLURE "template/entete.html"
+<div class="container">
+
+  <div class="page-header">
+    <h2>::compte:: : ::ajouteradresse::</h2>
+  </div>
+
+  <form action="#URLNOUVEAU" method="post" name="nouveau" id="nouveau" class="form-horizontal">
+    <input type="hidden" name="action" value="creerlivraison" />
+    <input type="hidden" name="urlok" value="#URLPAGERET" />
+    <input type="hidden" name="urlerr" value="#URLFOND(livraison_adresse_err,erradr=1)" />
+
+    <div class="control-group">
+      <label class="control-label" for="nom">::libelle::* </label> 
+      <div class="controls">
+        <input type="text" name="libelle" id="libelle" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="civilite">::civilite::*</label> 
+      <div class="controls">
+        <select name="raison" size="1" id="civilite">
+          <option value="" selected="selected">::choisissez::</option>
+          <THELIA_raison type="RAISON">
+          <option value="#ID" #DEFAUT>#LONG</option>
+          </THELIA_raison>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="nom">::nom::*</label> 
+      <div class="controls">
+        <input type="text" name="nom" id="nom" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="prenom">::prenom::*</label> 
+      <div class="controls">
+        <input type="text" name="prenom" id="prenom" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="adresse1">::adresse::*</label> 
+      <div class="controls">
+        <input type="text" name="adresse1" id="adresse1"  />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="adresse2">::complementadresse::</label> 
+      <div class="controls">
+        <input type="text" name="adresse2" id="adresse2"  />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="cpostal">::cp::*</label> 
+      <div class="controls">
+        <input type="text" name="cpostal" id="cpostal"  />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="ville">::ville::*</label> 
+      <div class="controls">
+        <input type="text" name="ville" id="ville"  />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="pays">::pays::*</label> 
+      <div class="controls">
+        <select name="pays" size="1" id="pays">
+          <option value="" selected="selected">::choisissez::</option>
+          <THELIA_pays type="PAYS" zdefinie="1">
+          <option value="#ID"  #DEFAUT>#TITRE</option>
+          </THELIA_pays>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="tel">::tel::</label> 
+      <div class="controls">
+        <input type="text" name="tel" id="tel"  />
+      </div>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">::valider::</button>
+    </div>
+  </form>
+
+  #INCLURE "template/signature.html"
+</div> <!-- /container -->
+#INCLURE "template/footer.html"
+</body>
+</html>

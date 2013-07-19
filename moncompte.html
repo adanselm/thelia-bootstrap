@@ -1,3 +1,4 @@
+#PARAM_FOND_securise=1
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -15,6 +16,8 @@
     <h1>::compte::</h1>
   </div>
 
+<div class="row">
+  <div class="span4">
   <h3>::coordonnees::</h3>
   <address>
     #CLIENT_RAISON #CLIENT_PRENOM #CLIENT_NOM<br />
@@ -26,8 +29,9 @@
     E-mail : #CLIENT_EMAIL
   </address>
   <a href="#URLFOND(compte_modifier)" class="btn">::modifcomptemdp::</a>
+  </div>
 
-  <div>
+  <div class="span4">
     <h3>::adresseslivraison:: </h3>
     <THELIA_adrcours type="ADRESSE" adresse="#ADRESSE_ACTIVE">
     <address>
@@ -53,10 +57,10 @@
     <a href="#URLFOND(livraison_adresse)" class="btn">::ajoutnouvelleadresse::</a>
   </div>
 
-  <div>
+  <div class="span4">
     <h3>::mescommandes::</h3>
     <T_cmd>
-    <table id="table-panier">
+    <table class="table table-stripedr">
       <thead>
         <tr>
           <th>::numcommande:: </th>
@@ -69,11 +73,11 @@
       <tbody>
       <THELIA_cmd type="COMMANDE" client="#CLIENT_ID">
       <tr>
-        <td class="ligne">#REF</td>
-        <td class="ligne">#DATE</td>
-        <td class="ligne">#TOTCMDPORT €</td>
-        <td class="ligne">#STATUT</td>
-        <td class="ligne"><a href="#URLFOND(commande_detail,commande=#REF)">::voircommande::</a></td>
+        <td>#REF</td>
+        <td>#DATE</td>
+        <td>#TOTCMDPORT €</td>
+        <td>#STATUT</td>
+        <td><a href="#URLFOND(commande_detail,commande=#REF)" class="btn btn-mini"><i class="icon-search"></i></a></td>
       </tr>
       </THELIA_cmd>
       </tbody>
@@ -82,7 +86,7 @@
     <h4>::nocommande::</h4>
     <//T_cmd>
   </div>
-
+</div>
 
   #INCLURE "template/signature.html"
 </div> <!-- /container -->

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+#INCLURE "template/header.html"
+</head>
+<body>
+#INCLURE "template/entete.html"
+<div class="container">
+
+  <div class="page-header">
+    <h1>::compte::&nbsp;<small>::mdpperdu::</small></h1>
+  </div>
+  <h4>::inscrivez::</h4>
+  <form action="#URLFOND(mdpoublieok)" method="post" name="formmdp" id="formmdp" class="form-horizontal">
+    <input type="hidden" name="action" value="chmdp" />
+    <div class="control-group error">
+      <label class="control-label">::votreemail::</label>
+      <div class="controls">
+        <input name="email" type="text"/>
+        <span class="help-inline">::inexistant::</span>
+        <button type="submit" class="btn btn-primary">::valider::</button>
+      </div>
+    </div>
+  </form>
+
+  <a class="btn" href="#URLSOMMAIRE">::retourpageaccueil::</a>
+
+  #INCLURE "template/signature.html"
+</div> <!-- /container -->
+#INCLURE "template/footer.html"
+</body>
+</html>

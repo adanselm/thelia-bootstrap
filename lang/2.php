@@ -14,7 +14,9 @@
 		'retourarticles' => 'Back to list of products',
 		'derniersarticlesdos' => 'Recent articles',
 		'contenudos' => 'Content',
-		'dossiers' => 'Folders',
+    'dossiers' => 'Folders',
+    'produits' => 'Products',
+    'apropos' => 'About',
 		
 		//Index_page
 		'changprix' => 'instead of',

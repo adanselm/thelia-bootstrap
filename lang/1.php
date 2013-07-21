@@ -14,7 +14,9 @@
 		'retourarticles' => 'Retour à la liste des articles',
 		'derniersarticlesdos' => 'Derniers articles',
 		'contenudos' => 'Contenu de la rubrique',
-		'dossiers' => 'Dossiers',
+    'dossiers' => 'Dossiers',
+    'produits' => 'Produits',
+    'apropos' => 'A propos',
 		
 		//index_page
 		'changprix' => 'au lieu de',

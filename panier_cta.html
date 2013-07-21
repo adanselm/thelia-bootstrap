@@ -1,0 +1,27 @@
+<!--For this snippet to work, it needs to be included after jquery is loaded (footer.html)-->
+
+#FILTRE_different(#ENV{panier, 0}||0||
+<div id="myModalCartCTA" class="modal hide fade" role="dialog" tabindex="-1" aria-labelledby="myModalCartCTALabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalCartCTALabel">::quefaire::</h3>
+  </div>
+  <div class="modal-body">
+    <p>::produitajoutepanier::</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">::poursuivreachats::</button>
+    <a href="#URLFOND(panier)" class="btn btn-primary">::validerpanier::</a>
+  </div>
+</div>
+)
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $('#myModalCartCTA').modal({
+    backdrop: true
+  })
+
+});
+</script>

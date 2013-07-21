@@ -246,8 +246,8 @@
 		
 		//thickbox
 		'produitajoutepanier' => 'The product has been added to your cart !',
-		'quefaire' => 'Que souhaitez-vous faire ?',
-		'validerpanier' => 'Valider mon panier et finaliser ma commande',
+		'quefaire' => 'What do you want to do next ?',
+		'validerpanier' => 'Review my cart and proceed with checkout',
 		'poursuivreachats' => 'Continue shopping',
 		
 		//superbox

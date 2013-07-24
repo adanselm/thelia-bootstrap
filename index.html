@@ -16,10 +16,11 @@
                 <h1>#TITRE</h1>
                 <p>#CHAPO</p>
                 <p>#DESCRIPTION</p>
-                <p><a class="btn btn-primary btn-large" href="#URLFOND(produit)">::infosup::&raquo;</a></p>
+                <button class="btn btn-primary btn-large" data-celery="3b2pho">Build your kit!</button>
             </THELIA_contenu>
             </div>
 
+            <div id="produit">
             <THELIA_rub type="RUBRIQUE">
             <T_prod>
             <div class="page-header">
@@ -37,30 +38,44 @@
                 <//TEST_count2>
               <//TEST_count1>
                 <div class="thumbnail">
-			      			<a href="#URLFOND(produit)##ID" class="image">
-			      			<T_IMAGE>
-			      				<THELIA_IMAGE type="IMAGE" num="1" produit="#ID" >
-			      					<img src="#IMAGE" alt="#PRODTITRE" title="#PRODTITRE" />
-			      				</THELIA_IMAGE>
-			      			</T_IMAGE>
-			      					<img src="./template/img/no-image.png" alt="Pas d'image disponible" />
-			      			<//T_IMAGE>
-			      			</a>
-			      			<h2><a href="#URLFOND(produit)##ID">#TITRE</a></h2>
-			      			<div class="lead">#CHAPO</div>
-										<div class="pull-right">
-                      #PROMO[<span class="label label-important">#PRIX2€</span>][<span class="label label-important">#PRIX€</span>]
-			      		  		#PROMO[<del>#PRIX€</del>][]
-										</div>
-                      <form action="#AJOUTER_PARAMETRE(#URLCOURANTE,panier=1)" method="post">
-                        <input type="hidden" name="action" value="ajouter" />
-                        <input type="hidden" name="ref" value="#REF" />
-                        <input type="hidden" name="quantite" value="1" />
-                      <div class="btn-group">
-                        <a href="#URLFOND(produit)##ID" role="button" class="btn btn-info"><i class="icon-info-sign icon-white"></i> ::infosup::</a>
-                        <button type="submit" role="button" class="btn btn-warning"><i class="icon-plus-sign icon-white"></i> ::ajouterpanier::</button>
-                      </div>
-                      </form>
+
+<div id="myCarousel" class="carousel slide">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+              <T_IMAGE>
+                <THELIA_IMAGE type="IMAGE" num="1" produit="#ID" >
+                  <div class="active item">
+                    <img src="#IMAGE" alt="#PRODTITRE" title="#PRODTITRE" />
+                    <!--<div class="carousel-caption">-->
+                      <!--<h4>#TITRE</h4>-->
+                      <!--<p>#CHAPO</p>-->
+                    <!--</div>-->
+                  </div>
+                </THELIA_IMAGE>
+                <THELIA_IMAGE type="IMAGE" deb="2" produit="#ID" >
+                  <div class="item">
+                    <img src="#IMAGE" alt="#PRODTITRE" title="#PRODTITRE" />
+                    <!--<div class="carousel-caption">-->
+                      <!--<h4>#TITRE</h4>-->
+                      <!--<p>#CHAPO</p>-->
+                    <!--</div>-->
+                  </div>
+                </THELIA_IMAGE>
+              </T_IMAGE>
+                <div class="active item">
+                  <img src="./template/img/no-image.png" alt="Pas d'image disponible" />
+                </div>
+              <//T_IMAGE>
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+          </div>
+
+			      			<h2>#TITRE</h2>
+
+                <button class="btn btn-primary btn-large" data-celery="3b2pho">Build your kit!</button>
+                      
                 </div>
               </li>
 			      	</THELIA_PROD>
@@ -90,6 +105,7 @@
             </T_prod>
             <//T_prod>
             </THELIA_rub>
+          </div>
 
             <br/>
             <div id="about" class="well well-small">

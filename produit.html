@@ -5,11 +5,18 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 #INCLURE "template/header.html"
+
+<!--Temporary overriding anoying celery width restriction-->
+<style>
+#body.body-collection {
+  width: 100%;
+}
+</style>
+
 </head>
 <body>
 #INCLURE "template/entete.html"
-<div class="container-fluid">
-
+<div class="container">
   <div data-celery="3b2pho" data-celery-type="embed"></div>
 
   #INCLURE "template/signature.html"

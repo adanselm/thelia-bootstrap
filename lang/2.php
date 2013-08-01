@@ -188,7 +188,7 @@
 		
 		//merci
 		'merci' => 'Thank you',
-		'remerciements' => 'Our store is grateful for your purchase.',
+		'remerciements' => 'Our store is grateful for your purchase. You will receive a confirmation of your order by email soon.',
 		'abientot' => 'Good surfing and see you soon.',
 		'retourpageaccueil' => 'Go to home page',
 		

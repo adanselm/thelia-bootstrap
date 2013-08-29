@@ -8,34 +8,57 @@
     </head>
     <body>
         #INCLURE "template/entete.html"
+        <div style="background-color: rgb(255, 231, 231);">
         <div class="container">
           <div id="home"></div>
                       <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit">
+            <div class="hero-unit" style="background-color:transparent;">
             <THELIA_contenu type="CONTENU" dossier="4" num="1">
             <h1>#TITRE <small>#CHAPO</small></h1>
                 <p class="lead">#DESCRIPTION</p>
             </THELIA_contenu>
             </div>
+        </div> <!-- Container -->
+        </div>
 
+        <div class="container">
             <div id="services">
               <div class="page-header">
                 <h1>Custom Shop</h1>
               </div>
-              <ul class="media-list">
+
+              <ul class="thumbnails">
                 <THELIA_contenu type="CONTENU" dossier="5">
-                  <li class="media">
-                    <THELIA_IMAGE type="IMAGE" num="1" contenu="#ID" hauteur="400">
-                      <img class="media-object pull-left" src="#IMAGE" alt="#CONTTITRE" title="#CONTTITRE">
-                    </THELIA_IMAGE>
-                    <div class="media-body">
-                      <h4 class="media-heading">#TITRE</h4>
-                      <p class="lead">#CHAPO</p>
-                      <p>#DESCRIPTION</p>
-                    </div>
-                  </li>
-                </THELIA_contenu>
-              </ul>
+              <TEST_count1 variable="#NBRES" test="egal" valeur="1">
+                <li class="span12">
+              </TEST_count1>
+                <TEST_count2 variable="#NBRES" test="inferieur" valeur="3">
+                  <li class="span6">
+                </TEST_count2>
+                  <li class="span4">
+                <//TEST_count2>
+              <//TEST_count1>
+                <div class="thumbnail">
+
+              <T_IMAGE>
+                <THELIA_IMAGE type="IMAGE" num="1" contenu="#ID" >
+                  <div class="active item">
+                    <img src="#IMAGE" alt="#PRODTITRE" title="#PRODTITRE" />
+                  </div>
+                </THELIA_IMAGE>
+              </T_IMAGE>
+                <div class="active item">
+                  <img src="./template/img/no-image.png" alt="Pas d'image disponible" />
+                </div>
+              <//T_IMAGE>
+
+			      			<h2>#TITRE</h2>
+                  <p class="lead">#CHAPO</p>
+                  <p>#DESCRIPTION</p>
+                </div>
+              </li>
+			      	</THELIA_contenu>
+            </ul>
             </div>
 
 

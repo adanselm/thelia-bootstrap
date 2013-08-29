@@ -18,7 +18,84 @@
 #INCLURE "template/entete.html"
 <div class="container">
     <div class="alert lead"><strong>Special Offer!&nbsp;</strong> For a limited time, Free shipping with the coupon code <em>earlybird</em></div>
+
+<div id="produit">
+<THELIA_rub type="RUBRIQUE">
+<T_prod>
+<div class="page-header">
+  <h1>#TITRE&nbsp;<small>#CHAPO</small></h1>
+</div>
+<ul class="thumbnails">
+  <THELIA_PROD type="PRODUIT" rubrique="#ID" nouveaute="1">
+    </THELIA_PROD>
+</ul>
+
     <div data-celery="3b2pho" data-celery-type="embed"></div>
+
+<div class="row">
+  <div class="span6">
+<T_contenu>
+<div class="page-header">
+  <h2>Why should you care?</h2>
+</div>
+    <ul class="media-list">
+    <THELIA_contenu type="CONTENU" rubrique="#ID">
+      <li class="media">
+      <THELIA_IMAGE type="IMAGE" num="1" contenu="#ID" hauteur="100">
+        <img class="media-object pull-left" src="#IMAGE" alt="#CONTTITRE" title="#CONTTITRE">
+      </THELIA_IMAGE>
+      <div class="media-body">
+        <h4 class="media-heading">#TITRE</h4>
+        <p class="lead">#CHAPO</p>
+        <p>#DESCRIPTION</p>
+      </div>
+      </li>
+    </THELIA_contenu>
+    </ul>
+</T_contenu>
+<//T_contenu>
+</div>
+<div class="span6">
+<div class="page-header"><h2>One box to rule them all...</h2></div>
+<table class="table table-striped">
+  <tr><td colspan="2">One Midi output connector</td></tr>
+  <tr><td colspan="2">Three modes: Midi controller, Midi clock generator and Midi Timecode master</td></tr>
+  <tr><td colspan="2">Main kit comes with <strong>3 solid footswitches. Supports up to 7 total</strong></td></tr>
+  <tr><td colspan="2">Screen informs you of what has been sent</td></tr>
+  <tr><td><strong>Midi Controller (default) mode:</strong></td>
+    <td>
+    <ul>
+      <li>Rotary encoder triggers Midi programs change</li>
+      <li>Long hold and short press of switch launches different events</li>
+    </ul>
+  </td></tr>
+  <tr><td><strong>Midi clock mode:</strong></td>
+    <td>
+    <ul>
+      <li>Rotary encoder changes BPM of clock signal (from 20 to 900 :) )</li>
+      <li>First switch reserved for start/stop/continue events</li>
+      <li>Second switch short press acts as tap-tempo</li>
+      <li>All other send same Midi CC as in default mode</li>
+    </ul>
+  </td></tr>
+  <tr><td><strong>MTC mode:</strong></td>
+    <td>
+    <ul>
+      <li>Rotary encoder scrubs in time</li>
+      <li>First switch reserved for start/stop events</li>
+      <li>All other send same Midi CC as in default mode</li>
+    </ul>
+  </td></tr>
+  <tr><td colspan="2">Works on 7V-12V DC with standard "Boss" adapter (positive outside, negative inside). You can purchase one here if you need to.</td></tr>
+</table>
+</div>
+</div>
+
+</T_prod>
+<//T_prod>
+</THELIA_rub>
+</div>
+
   #INCLURE "template/signature.html"
 </div> <!-- /container -->
 #INCLURE "template/footer.html"

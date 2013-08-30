@@ -1,0 +1,101 @@
+#PARAM_FOND_obligenom=1
+#PARAM_FOND_obligeprenom=1
+#PARAM_FOND_obligetel=1
+#PARAM_FOND_obligesujet=1
+#PARAM_FOND_obligemessage=1
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+    #INCLURE "template/header.html"
+    </head>
+    <body>
+        #INCLURE "template/entete.html"
+        <div class="container">
+          <div id="contact">
+            <div class="page-header">
+              <h1>Contact</h1>
+            </div>
+
+            <div class="row">
+
+          <div class="span5">
+            <form action="#URLFOND(contact)" method="POST" class="form-horizontal">
+              <input type="hidden" name="action" value="contact" />
+              <div class="control-group #NOM[error]">
+                <label class="control-label" for="nom">::nom::</label>
+                <div class="controls">
+                  <input name="nom" type="text" />
+                  #NOM[<span class="help-inline">::obligatoire::</span>]
+                </div>
+              </div>
+              <div class="control-group #PRENOM[error]">
+                <label class="control-label" for="prenom">::prenom::</label>
+                <div class="controls">
+                  <input name="prenom" type="text" />
+                  #PRENOM[<span class="help-inline">::obligatoire::</span>]
+                </div>
+              </div>
+              <div class="control-group #EMAIL[error]">
+                <label class="control-label" for="email">::votreemail::</label>
+                <div class="controls">
+                  <input name="email" type="text" />
+                  #EMAIL[<span class="help-inline">::obligatoire::</span>]
+                </div>
+              </div>
+              <div class="control-group #TEL[error]">
+                <label class="control-label" for="tel">::tel::</label>
+                <div class="controls">
+                  <input name="tel" type="text"/>
+                  #TEL[<span class="help-inline">::obligatoire::</span>]
+                </div>
+              </div>
+              <div class="control-group #SUJET[error]">
+                <label class="control-label">::sujetmess::</label>
+                <div class="controls">
+                  <input name="sujet" type="text" class="objet"/>
+                  #SUJET[<span class="help-inline">::obligatoire::</span>]
+                </div>
+              </div>
+              <div class="control-group #MESSAGE[error]">
+                <label class="control-label">::votremess::</label>
+                <div class="controls">
+                  <textarea name="message" rows="10" /></textarea>
+                  #MESSAGE[<span class="help-inline">::obligatoire::</span>]
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">::envoyer::</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="span7">
+            <ul class="media-list">
+              <THELIA_contenu type="CONTENU" dossier="3">
+              <li class="media">
+              <THELIA_IMAGE type="IMAGE" num="1" contenu="#ID" hauteur="300">
+              <img class="media-object pull-left" src="#IMAGE" alt="#CONTTITRE" title="#CONTTITRE">
+              </THELIA_IMAGE>
+              <div class="media-body">
+                <h4>#TITRE</h4>
+                <p class="lead">#CHAPO</p>
+                <p>#DESCRIPTION</p>
+              </div>
+              </li>
+              </THELIA_contenu>
+            </ul>
+          </div>
+
+        </div>
+
+        </div>
+        #INCLURE "template/signature.html"
+        </div> <!-- /container -->
+        #INCLURE "template/footer.html"
+
+        #INCLURE "template/panier_cta.html"
+    </body>
+</html>

@@ -14,7 +14,7 @@
 
 .herocontainer {
   background-color: rgb(255, 231, 231);
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 footer {
@@ -47,7 +47,7 @@ footer .mentions {
 }
 
 body {
-  padding-top: 0;
+  padding-top: 40px;
   padding-bottom: 0;
 }
 
